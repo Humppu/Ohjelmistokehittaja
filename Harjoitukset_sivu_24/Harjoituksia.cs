@@ -178,6 +178,57 @@ suurinalku:
 
 static void SanaksiPieni()
 {
+    Console.WriteLine("Anna luku väliltä 0-9")
 
+        string luku = Console.ReadLine();
+
+    switch(luku)
+    {
+        case "0":
+            Console.WriteLine("Annoit luvun 0")
+        break;
+
+        case "1":
+            Console.WriteLine("Annoit luvun 1");
+        break;
+
+        case "2":
+            Console.WriteLine("Annoit luvun 2");
+        break;
+
+
+        case "3":
+            Console.WriteLine("Annoit luvun 3");
+        break;
+
+
+        case "4":
+            Console.WriteLine("Annoit luvun 4");
+        break; 
+
+        case "5":
+            Console.WriteLine("Annoit luvun 5");
+        break;
+
+        case "6":
+            Console.WriteLine("Annoit luvun 6");
+        break;
+
+        case "7":
+            Console.WriteLine("Annoit luvun 7");
+        break;
+
+        case "8":
+            Console.WriteLine("Annoit luvun 8");
+        break;
+
+        case "9":
+            Console.WriteLine("Annoit luvun 9");
+        break;
+
+
+        default: Console.WriteLine("Annoit virheellisen arvon");
+        break; 
+    }
 }
 
