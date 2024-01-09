@@ -138,22 +138,22 @@ suurinalku:
 
     }
 
-    if (luvut[0] < luvut[1])
+    if (luvut[0] <= luvut[1])
     {
         Console.WriteLine("Ensimmmäinen kokonaisluku on suurin");
     }
 
-    else if (luvut[0] < luvut[2])
+    else if (luvut[0] <= luvut[2])
     {
         Console.WriteLine("Ensimmmäinen kokonaisluku on suurin");
     }
 
-    else if (luvut[1] < luvut[2])
+    else if (luvut[1] <= luvut[2])
     {
         Console.WriteLine("Toinen kokonaisluku on suurin");
     }
 
-    else if ( luvut[1] < luvut[3])
+    else if ( luvut[1] <= luvut[3])
     {
         Console.WriteLine("Toinen kokonaisluku on suurin")
     }
