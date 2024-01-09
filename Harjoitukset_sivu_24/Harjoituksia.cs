@@ -167,6 +167,8 @@ suurinalku:
 
     if (vastaus != "/ ^\d +/")
     {
+        Console.WriteLine("Et antanut oikeaa arvoa");
+
         goto suurinalku; 
     }
 }
