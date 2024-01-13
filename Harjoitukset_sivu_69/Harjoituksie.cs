@@ -149,5 +149,49 @@ alku:
 
 
 
+	static void KirjainJarjestys()
+	{
+		string sana, usana;
+
+		int spituus; 
+
+		Console.Clear();
+		Console.WriteLine("Anna sana. Sanan ensimmäinen ja viimeinen kirjain vaihdetaan toisinpäin: ");
+
+		sana = Console.ReadLine();
+		spituus = sana.Length;
+
+		char[] taulukko = new char[spituus];
+
+		for (int a = 0; a < spituus; a++)
+		{
+			taulukko[a] = (sana[a]);
+
+			taulukko[0] = sana[spituus - 1];
+			taulukko[spituus - 1] = sana[0];
+			usana = String.Join(" ", taulukko);
+		}
+			Console.WriteLine("Annoit sanan {0} ja se on muutettu {1}", sana, usana);
+		
+
+
+	}
+
+
+
+
+
+
+
+
+	static void PosNeg()
+	{
+
+
+
+	}
+
+
+
 
 }
