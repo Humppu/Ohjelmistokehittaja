@@ -1,7 +1,8 @@
 
 using System;
+using System.Diagnostics.Eventing.Reader;
 
-string kysymykset; 
+string kysymykset;
 
 do
 {
@@ -22,7 +23,7 @@ alku:
 
 	try
 	{
-		paatos = Int32.Parse(Console.ReadLine()); 
+		paatos = Int32.Parse(Console.ReadLine());
 
 	}
 
@@ -33,42 +34,42 @@ alku:
 		Console.WriteLine("Arvo jonka annoit ei ole kokonaisluku. Yrit‰ uudelleen! Kiitos!");
 		Console.WriteLine(ex.Message);
 
-		goto alku; 
+		goto alku;
 	}
 
 
-	switch(paatos)
+	switch (paatos)
 	{
 		case 1:
 			AnnettuIka();
 			break;
 
-			case 2:
+		case 2:
 			LukujenToisto();
 			break;
 
-			case 3:
-			KirjainJarjestys(); 
+		case 3:
+			KirjainJarjestys();
 			break;
 
-			case 4:
+		case 4:
 			PosNeg();
 			break;
 
-			case 5:
-			TulostaPisin(); 
+		case 5:
+			TulostaPisin();
 			break;
 
-			case 6:
-			ParittomatLuvut(); 
+		case 6:
+			ParittomatLuvut();
 			break;
 
-			case 7:
-			JaollisetKolmella(); 
+		case 7:
+			JaollisetKolmella();
 			break;
 
 		default:
-			Console.WriteLine("Annoit v‰‰r‰n arvon. Anna arvo v‰lilt‰ 1-7. Yrit‰ uudelleen! Kiitos!"); 
+			Console.WriteLine("Annoit v‰‰r‰n arvon. Anna arvo v‰lilt‰ 1-7. Yrit‰ uudelleen! Kiitos!");
 
 			goto alku;
 			break;
@@ -86,7 +87,7 @@ alku:
 		string ika;
 
 		Console.Clear();
-		Console.WriteLine("Anna ik‰: "); 
+		Console.WriteLine("Anna ik‰: ");
 
 		ika = Console.ReadLine();
 
@@ -104,17 +105,18 @@ alku:
 
 	static void LukujenToisto()
 
-		int luku 
+		int luku
 
-		alku: 
-			
+		alku:
+
 
 	try
 	{
-		Console.WriteLine("Anna 10:nt‰ suurempi arvo: ");
 		Console.Clear();
+		Console.WriteLine("Anna 10:nt‰ suurempi arvo: ");
 
-		luku = Int32.Parse(Console.ReadLine()); 
+
+		luku = Int32.Parse(Console.ReadLine());
 
 	}
 
@@ -122,28 +124,28 @@ alku:
 	catch (Exception ex)
 	{
 
-		Console.WriteLine("Antamasiluku on virheellinen. Yrit‰ uudelleen, Kiitos!"); 
+		Console.WriteLine("Antamasiluku on virheellinen. Yrit‰ uudelleen, Kiitos!");
 		Console.WriteLine(ex.Message);
 
 		goto alku;
 	}
 
 
-	for( int a = 0; a < luku; a++) {
-	
-	for (int b = 0; b < luku; b++)
+	for (int a = 0; a < luku; a++) {
+
+		for (int b = 0; b < luku; b++)
 		{
 			Console.WriteLine(luku + " ");
 		}
-		Console.WriteLine();	
+		Console.WriteLine();
 
-		for ( int c = 0; c < luku; c++)
+		for (int c = 0; c < luku; c++)
 		{
-			Console.WriteLine(luku); 
+			Console.WriteLine(luku);
 		}
 
-		Console.WriteLine(); 
-				
+		Console.WriteLine();
+
 
 	}
 
@@ -153,7 +155,7 @@ alku:
 	{
 		string sana, usana;
 
-		int spituus; 
+		int spituus;
 
 		Console.Clear();
 		Console.WriteLine("Anna sana. Sanan ensimm‰inen ja viimeinen kirjain vaihdetaan toisinp‰in: ");
@@ -171,8 +173,8 @@ alku:
 			taulukko[spituus - 1] = sana[0];
 			usana = String.Join(" ", taulukko);
 		}
-			Console.WriteLine("Annoit sanan {0} ja se on muutettu {1}", sana, usana);
-		
+		Console.WriteLine("Annoit sanan {0} ja se on muutettu {1}", sana, usana);
+
 
 
 	}
@@ -185,8 +187,50 @@ alku:
 
 
 	static void PosNeg()
-	{
+	{ int luku, luku1;
 
+	alku:
+
+
+		Console.Clear();
+		Console.WriteLine("Ohjalema pyyt‰‰ kaksi lukua ja tarkistaa onko ne positiivisia vai negatiivisia. ");
+
+
+
+		try
+		{
+			Console.WriteLine("Anna ensimm‰inen kokonaisluku: ");
+			luku = Int32.Parse(Console.ReadLine());
+
+			Console.WriteLine("Anna toinen kokonaisluku: ");
+			luku1 = Int32.Parse(Console.ReadLine());
+		}
+
+		catch (Exception ex)
+		{
+
+			Console.WriteLine("Arvot jotka annoit eiv‰t ole kokonaislukuja. Yrit‰ uudelleen! Kiitos!");
+			Console.WriteLine(ex.Message);
+
+			goto alku;
+
+		}
+
+		if (luku > 0 && luku1 > 0)
+		{
+			Console.WriteLine("Antamasi arvot ovat positiivisia");
+		}
+
+		else if (luku < 0 && luku1 < 0)
+		{
+			Console.WriteLine("Antamasi arvot ovat negatiivisia");
+		}
+
+		else
+		{
+			Console.WriteLine("Annetuista luvuista toinen on positiivinen ja toinen on negatiivinen ");
+
+		}
 
 
 	}
@@ -194,4 +238,88 @@ alku:
 
 
 
-}
+
+
+
+
+
+
+
+
+	static void TulostaPisin()
+	{
+		Console.Clear();
+		Console.WriteLine("Ohjelma pyyt‰‰ lausetta ja n‰ytt‰‰‰ lauseen pisimm‰n sanan");
+
+
+
+		string sana
+
+			Console.WriteLine("Anna jokin lause: ");
+		sana = Console.ReadLine();
+
+		String[] taulukko = sana.Split(" ");
+		String spisin = taulukko[0];
+
+		for (int a = 1; a < taulukko.Length; a++)
+		{
+			if (talukko[a].Lenght > spisin.Length)
+			{
+				spisin = taulukko[a];
+			}
+		}
+
+		Console.WriteLine("Antamasi lause on {0}, ja pisin sana on {1}.", sana, spisin);
+
+	}
+
+
+
+
+
+
+
+
+	static void ParittomatLuvut()
+	{
+		Console.Clear();
+		Console.WriteLine("Ohjelma tulostaa parittomat luvut 1-99 v‰lilt‰. ");
+
+		for (int a = 1; a < 99; a += 2) {
+
+			Console.WriteLine(a + " ");
+		}
+		else
+		{
+			Console.WriteLine("Annoit v‰‰r‰nlaisen arvon! Yrit‰ uudelleen! Kiitos!");
+
+		}
+	}
+
+
+
+
+
+
+
+	static void JaollisetKolmella()
+	{
+		Console.Clear();
+		Console.WriteLine("Ohjelma tulostaa kolmella jaolliset arvot 1-99 v‰lilt‰.");
+
+		for (int a = 3; a <= 99; a += 3) {
+
+			Console.WriteLine(a + " "); }
+
+	}
+
+		else
+	{
+		Console.WriteLine("Annoit v‰‰r‰nlaisen arvon! Yrit‰ uudelleen! Kiitos!");
+	}
+
+
+	Console.WriteLine("Lopetetaanko ohjelma? paina 0 + Enter lopettaaksesi ohjelman. Mik‰ tahansa muu n‰pp‰in jatkaa ohjelmaa.");
+	Console.ReadLine();
+
+} while (kysymys != "0"); 
