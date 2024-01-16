@@ -13,48 +13,56 @@ namespace LukujenJärjestys
     public partial class LukujenJarjestys : Form
     {
         List<int> jono = new List<int>();
+
         public LukujenJarjestys()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void uusiLukuTB_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)
             {
+                try
+                {
+                    int parsedNumber = Int32.Parse(uusiLukuTB.Text);
 
-                if(uusiLukuTB.Text == "-999")
-                {
-                    VastausLB.Text = "";
-                    int[] taulukko = jono.ToArray(); 
-                    Array.Sort(taulukko);
-                    foreach(var jasen in taulukko)
+                    if (parsedNumber == -999)
                     {
-                        VastausLB.Text += jasen + " "; 
+                        VastausLB.Text = "";
+                        int[] taulukko = jono.ToArray();
+                        Array.Sort(taulukko);
+                        foreach (var jasen in taulukko)
+                        {
+                            VastausLB.Text += jasen + " ";
+                        }
+                        VastausLB.ForeColor = Color.Black;
+                        VastausLB.Visible = true;
                     }
-                    VastausLB.Visible = true;      
+                    else
+                    {
+                        VastausLB.Text = "";
+                        VastausLB.Visible = false;
+                        jono.Add(parsedNumber);
+                        uusiLukuTB.Text = "";
+                    }
                 }
-                else
+                catch
                 {
-                    jono.Add(Int32.Parse(uusiLukuTB.Text));
-                    uusiLukuTB.Text = ""; 
+                    VastausLB.Text = "Virhe!";
+                    VastausLB.Visible = true;
+                    VastausLB.ForeColor = Color.Red;
                 }
             }
-            if (e.KeyChar == (char)Keys.Escape)
+            else if (e.KeyChar == (char)Keys.Escape)
             {
-                TyhjaaLomake(); 
+                TyhjaaLomake();
             }
         }
-        
+
         private void TyhjaaLomake()
         {
-            uusiLukuTB.Text = ""; 
+            uusiLukuTB.Text = "";
         }
-
     }
 }
