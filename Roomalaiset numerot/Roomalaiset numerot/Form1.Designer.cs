@@ -1,4 +1,6 @@
-﻿namespace Roomalaiset_numerot
+﻿using System;
+
+namespace Roomalaiset_numerot
 {
     partial class Form1
     {
@@ -57,7 +59,7 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Anna numero väliltä 1-3999, muutan sen roomalaiseksi: \r\n\r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // TekstiTB
             // 
@@ -107,6 +109,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
