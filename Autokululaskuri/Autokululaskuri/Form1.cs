@@ -19,6 +19,21 @@ namespace Autokululaskuri
 
         private void KilometriCB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            double laina, nesteet, vakuutus, muut, polttoaine, pesut, huollot, renkaat, kilometrit, yhteensa;
+            
+            laina = Convert.ToDouble(LainaTB.Text);
+            nesteet = Convert.ToDouble(NesteetTB.Text);
+            vakuutus = Convert.ToDouble(VakuutuksetTB.Text);
+            muut = Convert.ToDouble(MuutTB.Text);
+            polttoaine = Convert.ToDouble(PolttonesteTB.Text);
+            pesut = Convert.ToDouble(PesutTB.Text);
+            huollot = Convert.ToDouble(HuollotTB.Text);
+            renkaat = Convert.ToDouble(RenkaatTB.Text);
+            kilometrit = Convert.ToDouble(KilometriCB.Text);
+          
+            yhteensa = (laina + nesteet + vakuutus + muut + polttoaine + pesut + huollot + renkaat) / (kilometrit / 12);
+
+            VastausLB.Text = "Kustannukset kilometriä kohti on: " + yhteensa; 
 
         }
     }

@@ -44,7 +44,7 @@
             this.MuutTB = new System.Windows.Forms.TextBox();
             this.PolttonesteTB = new System.Windows.Forms.TextBox();
             this.PesutTB = new System.Windows.Forms.TextBox();
-            this.HuollotTb = new System.Windows.Forms.TextBox();
+            this.HuollotTB = new System.Windows.Forms.TextBox();
             this.RenkaatTB = new System.Windows.Forms.TextBox();
             this.KilometriCB = new System.Windows.Forms.ComboBox();
             this.VastausLB = new System.Windows.Forms.Label();
@@ -193,12 +193,12 @@
             this.PesutTB.Size = new System.Drawing.Size(75, 20);
             this.PesutTB.TabIndex = 15;
             // 
-            // HuollotTb
+            // HuollotTB
             // 
-            this.HuollotTb.Location = new System.Drawing.Point(572, 218);
-            this.HuollotTb.Name = "HuollotTb";
-            this.HuollotTb.Size = new System.Drawing.Size(75, 20);
-            this.HuollotTb.TabIndex = 16;
+            this.HuollotTB.Location = new System.Drawing.Point(572, 218);
+            this.HuollotTB.Name = "HuollotTB";
+            this.HuollotTB.Size = new System.Drawing.Size(75, 20);
+            this.HuollotTB.TabIndex = 16;
             // 
             // RenkaatTB
             // 
@@ -211,16 +211,16 @@
             // 
             this.KilometriCB.FormattingEnabled = true;
             this.KilometriCB.Items.AddRange(new object[] {
-            "1000",
-            "2000",
-            "3000",
-            "4000",
             "5000",
-            "6000",
-            "7000",
-            "8000",
-            "9000",
-            "10000"});
+            "10000",
+            "15000",
+            "20000",
+            "25000",
+            "30000",
+            "35000",
+            "40000",
+            "45000",
+            "50000"});
             this.KilometriCB.Location = new System.Drawing.Point(572, 297);
             this.KilometriCB.Name = "KilometriCB";
             this.KilometriCB.Size = new System.Drawing.Size(75, 21);
@@ -233,9 +233,8 @@
             this.VastausLB.Font = new System.Drawing.Font("Segoe Script", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VastausLB.Location = new System.Drawing.Point(55, 391);
             this.VastausLB.Name = "VastausLB";
-            this.VastausLB.Size = new System.Drawing.Size(330, 27);
+            this.VastausLB.Size = new System.Drawing.Size(0, 27);
             this.VastausLB.TabIndex = 19;
-            this.VastausLB.Text = "Kustannukset kilometriä kohti ovat: ";
             // 
             // Form1
             // 
@@ -246,7 +245,7 @@
             this.Controls.Add(this.VastausLB);
             this.Controls.Add(this.KilometriCB);
             this.Controls.Add(this.RenkaatTB);
-            this.Controls.Add(this.HuollotTb);
+            this.Controls.Add(this.HuollotTB);
             this.Controls.Add(this.PesutTB);
             this.Controls.Add(this.PolttonesteTB);
             this.Controls.Add(this.MuutTB);
@@ -288,7 +287,7 @@
         private System.Windows.Forms.TextBox MuutTB;
         private System.Windows.Forms.TextBox PolttonesteTB;
         private System.Windows.Forms.TextBox PesutTB;
-        private System.Windows.Forms.TextBox HuollotTb;
+        private System.Windows.Forms.TextBox HuollotTB;
         private System.Windows.Forms.TextBox RenkaatTB;
         private System.Windows.Forms.ComboBox KilometriCB;
         private System.Windows.Forms.Label VastausLB;
