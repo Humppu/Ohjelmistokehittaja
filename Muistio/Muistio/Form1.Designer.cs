@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.TekstiTB = new System.Windows.Forms.RichTextBox();
             this.tiedostoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uusiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +36,7 @@
             this.lopetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.muotoileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kirjasinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TekstiTB = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,15 +50,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(558, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // TekstiTB
-            // 
-            this.TekstiTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TekstiTB.Location = new System.Drawing.Point(0, 24);
-            this.TekstiTB.Name = "TekstiTB";
-            this.TekstiTB.Size = new System.Drawing.Size(558, 453);
-            this.TekstiTB.TabIndex = 0;
-            this.TekstiTB.Text = "";
             // 
             // tiedostoToolStripMenuItem
             // 
@@ -75,7 +66,7 @@
             // 
             this.uusiToolStripMenuItem.Name = "uusiToolStripMenuItem";
             this.uusiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.uusiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uusiToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.uusiToolStripMenuItem.Text = "Uusi";
             this.uusiToolStripMenuItem.Click += new System.EventHandler(this.uusiToolStripMenuItem_Click);
             // 
@@ -83,7 +74,7 @@
             // 
             this.avaaToolStripMenuItem.Name = "avaaToolStripMenuItem";
             this.avaaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.avaaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.avaaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.avaaToolStripMenuItem.Text = "Avaa";
             this.avaaToolStripMenuItem.Click += new System.EventHandler(this.avaaToolStripMenuItem_Click);
             // 
@@ -91,7 +82,7 @@
             // 
             this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
             this.tallennaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.tallennaToolStripMenuItem.Text = "Tallenna";
             this.tallennaToolStripMenuItem.Click += new System.EventHandler(this.tallennaToolStripMenuItem_Click);
             // 
@@ -99,7 +90,7 @@
             // 
             this.lopetaToolStripMenuItem.Name = "lopetaToolStripMenuItem";
             this.lopetaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.lopetaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lopetaToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.lopetaToolStripMenuItem.Text = "Lopeta";
             this.lopetaToolStripMenuItem.Click += new System.EventHandler(this.lopetaToolStripMenuItem_Click);
             // 
@@ -120,6 +111,15 @@
             this.kirjasinToolStripMenuItem.Text = "Kirjasin";
             this.kirjasinToolStripMenuItem.Click += new System.EventHandler(this.kirjasinToolStripMenuItem_Click);
             // 
+            // TekstiTB
+            // 
+            this.TekstiTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TekstiTB.Location = new System.Drawing.Point(0, 24);
+            this.TekstiTB.Name = "TekstiTB";
+            this.TekstiTB.Size = new System.Drawing.Size(558, 453);
+            this.TekstiTB.TabIndex = 0;
+            this.TekstiTB.Text = "";
+            // 
             // MuistioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
@@ -129,7 +129,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MuistioForm";
             this.Text = "Muistio";
             this.Load += new System.EventHandler(this.MuistioForm_Load);
