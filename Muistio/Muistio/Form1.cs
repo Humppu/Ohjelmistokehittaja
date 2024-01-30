@@ -17,10 +17,11 @@ namespace Muistio
         private OpenFileDialog openFileDialog;
         private SaveFileDialog saveFileDialog;
         private FontDialog fontDialog;
-
+        string tiedostopolku = "";
 
         public MuistioForm()
         {
+            
             InitializeComponent();
         }
 
@@ -28,13 +29,13 @@ namespace Muistio
         {
             try
             {
-                if (!string.IsNullOrEmpty(TekstiTB.Text))
+                if (!string.IsNullOrEmpty(TekstiRTB.Text))
                 {
                     MessageBox.Show("Sinun pitää tallentaa ensin!");
                 }
                 else
                 {
-                    TekstiTB.Text = string.Empty;
+                    TekstiRTB.Text = string.Empty;
                     Text = "Nimetön";
                 }
             }
@@ -49,13 +50,13 @@ namespace Muistio
         {
             try
             {
-                if (!string.IsNullOrEmpty(TekstiTB.Text))
+                if (!string.IsNullOrEmpty(TekstiRTB.Text))
                 {
                     saveFileDialog = new SaveFileDialog();
                     saveFileDialog.Filter = "TextDocument | *.txt | Rich Text Format | *.rtf";
                     if (saveFileDialog.ShowDialog() == DialogResult.OK) 
                     {
-                        File.WriteAllText(saveFileDialog.FileName, TekstiTB.Text); 
+                        File.WriteAllText(saveFileDialog.FileName, TekstiRTB.Text); 
 
                     }
 
@@ -75,7 +76,7 @@ namespace Muistio
                 openFileDialog = new OpenFileDialog();
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    TekstiTB.Text = File.ReadAllText(openFileDialog.FileName);
+                    TekstiRTB.Text = File.ReadAllText(openFileDialog.FileName);
                     Text = openFileDialog.FileName;
                 }
             }
@@ -93,24 +94,100 @@ namespace Muistio
 
         private void uusiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (TekstiRTB.Text != "")
+            {
+                tallennaToolStripMenuItem_Click(sender, e);
+                TekstiRTB.Text = ""; 
+            }
+            else
+            {
+                TekstiRTB.Text = "";
+
+            }
             UusiTiedosto();
         }
 
+
         private void avaaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AvaaTiedosto(); 
+            AvaaTiedosto();
+            using (OpenFileDialog atk = new OpenFileDialog()
+            {
+                Filter = "Rikastekstiformaatti|*.rtf",
+                ValidateNames = true,
+                Multiselect = false
+            })
+            {
+                if(atk.ShowDialog() == DialogResult.OK)
+                {
+                    using(StreamReader vl = new StreamReader(atk.FileName))
+                    {
+                        tiedostopolku = atk.FileName;
+                        Task<string> teksti = vl.ReadToEndAsync();
+                        TekstiRTB.Rtf = teksti.Result;
+                    }
+                }
+            }
+
+
         }
+
 
         private void tallennaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TallennaTiedosto();
+            {
+                if (string.IsNullOrEmpty(tiedostopolku))
+                {
+                    using(SaveFileDialog ttk = new SaveFileDialog()
+                    {
+                        Filter = "TextDocument | *.txt |Rich Text Format|*.rtf", ValidateNames= true
+                    })
+                    {
+                        if (ttk.ShowDialog() == DialogResult.OK)
+                        {
+                            StreamWriter tiedosto = new StreamWriter(ttk.FileName);
+                            tiedosto.WriteLine(this.TekstiRTB.Rtf);
+                            tiedosto.Close();
+                           
+                        }
+
+                        else
+                        {
+                            using(StreamWriter vk = new StreamWriter(tiedostopolku))
+                            {
+                                vk.WriteLineAsync(TekstiRTB.Rtf); 
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private void tallennaNimelläToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog ttk = new SaveFileDialog()
+            {
+                Filter = "TextDocument | *.txt |Rich Text Format|*.rtf",
+                ValidateNames = true
+            })
+
+            if (ttk.ShowDialog() == DialogResult.OK)
+            {
+                    using (StreamWriter jonokirjoittaja = new StreamWriter(ttk.FileName))
+                    {
+                        jonokirjoittaja.WriteLineAsync(TekstiRTB.Rtf);
+                    }
+                
+            }
         }
 
         private void lopetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!string.IsNullOrEmpty(TekstiTB.Text))
+                if (!string.IsNullOrEmpty(TekstiRTB.Text))
                 {
                     TallennaTiedosto();
                 }
@@ -131,20 +208,84 @@ namespace Muistio
 
         private void kirjasinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if(fontDialog.ShowDialog() == DialogResult.OK)
-                {
-                    TekstiTB.Font = fontDialog.Font;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Virhe avattaessa tiedostoa!: " + ex);
-            }
+            fontDialog1.ShowDialog();
+            TekstiRTB.SelectionFont = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
 
         }
 
-       
+
+
+        private void tulostuksenEsikatseluToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void tulostaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.Document = printDocument1;
+
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+        }
+
+        private void poistuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString(TekstiRTB.Text, TekstiRTB.Font, Brushes.Black, 12, 10); 
+        }
+
+        private void liitäToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.Undo();
+            TekstiRTB.Redo();
+            TekstiRTB.Copy();
+            TekstiRTB.Cut();
+            TekstiRTB.Paste();
+            TekstiRTB.SelectedText = "";
+            TekstiRTB.SelectAll();
+
+        }
+
+        private void TekstiRTB_TextChanged(object sender, EventArgs e)
+        {
+
+            if(TekstiRTB.Text.Length > 0)
+            {
+                kopioiToolStripMenuItem.Enabled = true; 
+                leikkaaToolStripMenuItem.Enabled = true;
+            }
+
+            else
+            {
+                kopioiToolStripMenuItem.Enabled = false;
+                leikkaaToolStripMenuItem.Enabled = false; 
+            }
+        }
+
+        private void tekstinRivitysToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(tekstinRivitysToolStripMenuItem.Checked == true)
+            {
+                tekstinRivitysToolStripMenuItem.Checked = false;
+                TekstiRTB.WordWrap= false;
+            }
+            else
+            {
+                tekstinRivitysToolStripMenuItem.Checked= true;
+                TekstiRTB.WordWrap= true;
+            }
+        }
+
+        private void tekstinKorostusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.SelectionBackColor = Color.Yellow;
+        }
     }
 }
