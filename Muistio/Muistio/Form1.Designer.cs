@@ -35,7 +35,7 @@
             this.avaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tallennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lopetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tallennaNimelläToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tallennaNimellaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.tulostuksenEsikatseluToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tulostaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +51,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.kopioiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leikkaaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.liitäToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.liitaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.poistaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.valitseKaikkiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apuaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +86,7 @@
             this.avaaToolStripMenuItem,
             this.tallennaToolStripMenuItem,
             this.lopetaToolStripMenuItem,
-            this.tallennaNimelläToolStripMenuItem,
+            this.tallennaNimellaToolStripMenuItem,
             this.toolStripMenuItem1,
             this.tulostuksenEsikatseluToolStripMenuItem,
             this.tulostaToolStripMenuItem,
@@ -128,12 +128,12 @@
             this.lopetaToolStripMenuItem.Text = "Lopeta";
             this.lopetaToolStripMenuItem.Click += new System.EventHandler(this.lopetaToolStripMenuItem_Click);
             // 
-            // tallennaNimelläToolStripMenuItem
+            // tallennaNimellaToolStripMenuItem
             // 
-            this.tallennaNimelläToolStripMenuItem.Name = "tallennaNimelläToolStripMenuItem";
-            this.tallennaNimelläToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.tallennaNimelläToolStripMenuItem.Text = "Tallenna nimellä...";
-            this.tallennaNimelläToolStripMenuItem.Click += new System.EventHandler(this.tallennaNimelläToolStripMenuItem_Click);
+            this.tallennaNimellaToolStripMenuItem.Name = "tallennaNimellaToolStripMenuItem";
+            this.tallennaNimellaToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.tallennaNimellaToolStripMenuItem.Text = "Tallenna nimellä...";
+            this.tallennaNimellaToolStripMenuItem.Click += new System.EventHandler(this.tallennaNimellaToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -210,7 +210,7 @@
             this.toolStripMenuItem2,
             this.kopioiToolStripMenuItem,
             this.leikkaaToolStripMenuItem,
-            this.liitäToolStripMenuItem,
+            this.liitaToolStripMenuItem,
             this.poistaToolStripMenuItem,
             this.valitseKaikkiToolStripMenuItem});
             this.muokkaaToolStripMenuItem.Name = "muokkaaToolStripMenuItem";
@@ -223,6 +223,7 @@
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // redoToolStripMenuItem
             // 
@@ -230,6 +231,7 @@
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.redoToolStripMenuItem.Text = "Redo";
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -243,6 +245,7 @@
             this.kopioiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.kopioiToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.kopioiToolStripMenuItem.Text = "Kopioi";
+            this.kopioiToolStripMenuItem.Click += new System.EventHandler(this.kopioiToolStripMenuItem_Click);
             // 
             // leikkaaToolStripMenuItem
             // 
@@ -251,14 +254,15 @@
             this.leikkaaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.leikkaaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.leikkaaToolStripMenuItem.Text = "Leikkaa";
+            this.leikkaaToolStripMenuItem.Click += new System.EventHandler(this.leikkaaToolStripMenuItem_Click);
             // 
-            // liitäToolStripMenuItem
+            // liitaToolStripMenuItem
             // 
-            this.liitäToolStripMenuItem.Name = "liitäToolStripMenuItem";
-            this.liitäToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.liitäToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.liitäToolStripMenuItem.Text = "Liitä";
-            this.liitäToolStripMenuItem.Click += new System.EventHandler(this.liitäToolStripMenuItem_Click);
+            this.liitaToolStripMenuItem.Name = "liitaToolStripMenuItem";
+            this.liitaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.liitaToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.liitaToolStripMenuItem.Text = "Liitä";
+            this.liitaToolStripMenuItem.Click += new System.EventHandler(this.liitaToolStripMenuItem_Click);
             // 
             // poistaToolStripMenuItem
             // 
@@ -272,6 +276,7 @@
             this.valitseKaikkiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.valitseKaikkiToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.valitseKaikkiToolStripMenuItem.Text = "Valitse kaikki";
+            this.valitseKaikkiToolStripMenuItem.Click += new System.EventHandler(this.valitseKaikkiToolStripMenuItem_Click);
             // 
             // apuaToolStripMenuItem
             // 
@@ -284,8 +289,9 @@
             // tietoaToolStripMenuItem
             // 
             this.tietoaToolStripMenuItem.Name = "tietoaToolStripMenuItem";
-            this.tietoaToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.tietoaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tietoaToolStripMenuItem.Text = "Tietoa";
+            this.tietoaToolStripMenuItem.Click += new System.EventHandler(this.tietoaToolStripMenuItem_Click);
             // 
             // TekstiRTB
             // 
@@ -351,7 +357,7 @@
         private System.Windows.Forms.ToolStripMenuItem muotoileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kirjasinToolStripMenuItem;
         private System.Windows.Forms.RichTextBox TekstiRTB;
-        private System.Windows.Forms.ToolStripMenuItem tallennaNimelläToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tallennaNimellaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tulostaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem muokkaaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apuaToolStripMenuItem;
@@ -364,7 +370,7 @@
         private System.Windows.Forms.ToolStripMenuItem redoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kopioiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem leikkaaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem liitäToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem liitaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem poistaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem valitseKaikkiToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;

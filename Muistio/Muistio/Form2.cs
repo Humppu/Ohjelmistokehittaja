@@ -13,7 +13,6 @@ namespace Muistio
 {
     public partial class tietoa : Form
     {
-        
         public tietoa()
         {
             InitializeComponent();
@@ -21,10 +20,8 @@ namespace Muistio
 
         private void TietoaForm_Load(object sender, EventArgs e)
         {
-            tietoa tietoa = new tietoa();
-            tietoa.ShowDialog();
-
+            tietoa tietoa = new tietoa();   
+            this.ShowDialog();
         }
     }
-
 }

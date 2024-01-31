@@ -165,7 +165,7 @@ namespace Muistio
             }
         }
 
-        private void tallennaNimelläToolStripMenuItem_Click(object sender, EventArgs e)
+        private void tallennaNimellaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog ttk = new SaveFileDialog()
             {
@@ -173,15 +173,16 @@ namespace Muistio
                 ValidateNames = true
             })
 
-            if (ttk.ShowDialog() == DialogResult.OK)
-            {
+                if (ttk.ShowDialog() == DialogResult.OK)
+                {
                     using (StreamWriter jonokirjoittaja = new StreamWriter(ttk.FileName))
                     {
                         jonokirjoittaja.WriteLineAsync(TekstiRTB.Rtf);
                     }
-                
-            }
+
+                }
         }
+
 
         private void lopetaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -241,17 +242,7 @@ namespace Muistio
             e.Graphics.DrawString(TekstiRTB.Text, TekstiRTB.Font, Brushes.Black, 12, 10); 
         }
 
-        private void liitäToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TekstiRTB.Undo();
-            TekstiRTB.Redo();
-            TekstiRTB.Copy();
-            TekstiRTB.Cut();
-            TekstiRTB.Paste();
-            TekstiRTB.SelectedText = "";
-            TekstiRTB.SelectAll();
-
-        }
+        
 
         private void TekstiRTB_TextChanged(object sender, EventArgs e)
         {
@@ -287,5 +278,45 @@ namespace Muistio
         {
             TekstiRTB.SelectionBackColor = Color.Yellow;
         }
+
+        private void undoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.Undo();
+        }
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.Redo();
+        }
+
+        private void kopioiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.Copy();
+        }
+
+        private void leikkaaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.Cut();
+        }
+
+        private void valitseKaikkiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.SelectAll();
+        }
+
+        private void tietoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tietoa tietoa = new tietoa();
+            tietoa.ShowDialog();
+        }
+
+        private void liitaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekstiRTB.Paste();
+            TekstiRTB.SelectedText = "";
+        }
     }
-}
+
+ }
+
+
