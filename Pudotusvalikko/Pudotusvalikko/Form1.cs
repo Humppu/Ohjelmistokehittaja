@@ -26,15 +26,6 @@ namespace Pudotusvalikko
             InitializeComponent();
         }
 
-        private void OppilaitosForm_Load(object sender, EventArgs e) 
-        {
-            taytaVastuuHenkilotTaulukko();
-            taytaOppilaitosTaulukko();
-            OppilaitoksetCB.DataSource = oppilaitos;
-            OppilaitoksetCB.DisplayMember = "ONimi";
-            }
-
-         
         private void OppilaitoksetCB_SelectedIndexChanged(object sender, EventArgs e)
         {
             string viite = oppilaitos.Rows[OppilaitoksetCB.SelectedIndex]["OID"].ToString();
@@ -45,10 +36,29 @@ namespace Pudotusvalikko
 
             yhteys = vastuuhenkilot.Select("OID =" + viite).CopyToDataTable();
             VastuuhenkiloCB.DataSource = yhteys;
-            VastuuhenkiloCB.DisplayMember = "VNimi"; 
+            VastuuhenkiloCB.DisplayMember = "VNimi";
         }
 
-       
+        private void OppilaitosForm_Load(object sender, EventArgs e) 
+        {
+            taytaOppilaitosTaulukko();
+            taytaVastuuHenkilotTaulukko();
+            OppilaitoksetCB.DataSource = oppilaitos;
+            OppilaitoksetCB.DisplayMember = "ONimi";
+            }
+
+         
+        
+
+        private void VastuuhloCB_TextChanged(object sender, EventArgs e)
+        {
+            TitteliLB.Text = yhteys.Rows[VastuuhenkiloCB.SelectedIndex]["VTitteli"].ToString();
+            OsastoLB.Text = yhteys.Rows[VastuuhenkiloCB.SelectedIndex]["VSijainti"].ToString();
+            EmailLB.Text = yhteys.Rows[VastuuhenkiloCB.SelectedIndex]["VSahkoposti"].ToString();
+            PuhLB.Text = yhteys.Rows[VastuuhenkiloCB.SelectedIndex]["VPuhelin"].ToString();
+        }
+
+
         private void taytaOppilaitosTaulukko()
         {
 
@@ -56,7 +66,7 @@ namespace Pudotusvalikko
             oppilaitos.Columns.Add("ONimi");
             oppilaitos.Columns.Add("OKatuosoite");
             oppilaitos.Columns.Add("OPostinumero");
-            oppilaitos.Columns.Add("Postitoimipaikka");
+            oppilaitos.Columns.Add("OPostitoimipaikka");
             oppilaitos.Columns.Add("OPuhelin"); 
 
             oppilaitos.Rows.Add(1, "StadinAO", "Hattulantie 2", "00550", "Helsinki", "09 310 8600");
@@ -101,9 +111,5 @@ namespace Pudotusvalikko
 
         }
 
-        private void VastuuhloCB_TextChanged(object sender, EventArgs e)
-        {
-            TitteliLB.Text = yhteys.Rows[VastuuhenkiloCB.SelectedIndex]["VTitteli"].ToString();
-        }
     }
 }
