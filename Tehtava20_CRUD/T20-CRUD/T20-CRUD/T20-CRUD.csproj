@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Opiskelija.cs" />
+    <Compile Include="Yhdista.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

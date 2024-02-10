@@ -52,10 +52,11 @@
             // 
             this.TietotauluDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TietotauluDG.Location = new System.Drawing.Point(15, 352);
-            this.TietotauluDG.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.TietotauluDG.Margin = new System.Windows.Forms.Padding(6);
             this.TietotauluDG.Name = "TietotauluDG";
             this.TietotauluDG.Size = new System.Drawing.Size(1191, 458);
             this.TietotauluDG.TabIndex = 0;
+            this.TietotauluDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.TietotauluDG_CellContentClick);
             // 
             // label1
             // 
@@ -159,6 +160,7 @@
             this.TyhjennaBT.TabIndex = 13;
             this.TyhjennaBT.Text = "Tyhjennä";
             this.TyhjennaBT.UseVisualStyleBackColor = false;
+            this.TyhjennaBT.Click += new System.EventHandler(this.TyhjennaBT_Click);
             // 
             // TallennaBT
             // 
@@ -172,6 +174,7 @@
             this.TallennaBT.TabIndex = 14;
             this.TallennaBT.Text = "Tallenna";
             this.TallennaBT.UseVisualStyleBackColor = false;
+            this.TallennaBT.Click += new System.EventHandler(this.TallennaBT_Click);
             // 
             // PaivitaBT
             // 
@@ -185,6 +188,7 @@
             this.PaivitaBT.TabIndex = 15;
             this.PaivitaBT.Text = "Päivitä";
             this.PaivitaBT.UseVisualStyleBackColor = false;
+            this.PaivitaBT.Click += new System.EventHandler(this.PaivitaBT_Click);
             // 
             // PoistaBt
             // 
@@ -198,6 +202,7 @@
             this.PoistaBt.TabIndex = 16;
             this.PoistaBt.Text = "Poista";
             this.PoistaBt.UseVisualStyleBackColor = false;
+            this.PoistaBt.Click += new System.EventHandler(this.PoistaBt_Click);
             // 
             // OpiskelijaNumTB
             // 
@@ -246,9 +251,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TietotauluDG);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.Text = "Opiskelijarekisterin ylläpito";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TietotauluDG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
