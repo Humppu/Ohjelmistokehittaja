@@ -11,6 +11,8 @@ namespace T20_CRUD
 {
     public partial class Form1 : Form
     {
+
+        OPISKELIJA opiskelija = new OPISKELIJA(); 
         public Form1()
         {
             InitializeComponent();
@@ -18,7 +20,7 @@ namespace T20_CRUD
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            TietotauluDG.DataSource = Opiskelija.HaeOpiskelijat();
+            TietotauluDG.DataSource = opiskelija.HaeOpiskelijat();
         }
 
 
@@ -49,7 +51,7 @@ namespace T20_CRUD
 
             else
             {
-                Boolean lisaaAsiakas = Opiskelija.LisaaOpiskelija(enimi, snimi, puhelin, email, oNro);
+                Boolean lisaaAsiakas = opiskelija.LisaaOpiskelija(enimi, snimi, puhelin, email, oNro);
                 if (lisaaAsiakas)
                 {
                     MessageBox.Show("Opiskelija lisätty onnistuneesti!", "Opiskelijan lisäys", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -62,7 +64,7 @@ namespace T20_CRUD
                 }
             }
 
-            TietotauluDG.DataSource = Opiskelija.HaeOpiskelijat();
+            TietotauluDG.DataSource = opiskelija.HaeOpiskelijat();
         }
 
         private void PaivitaBT_Click(object sender, EventArgs e)
@@ -84,7 +86,7 @@ namespace T20_CRUD
 
             else
             {
-                Boolean lisaaAsiakas = Opiskelija.MuokkaaOpiskelijaa(oid, oNro, enimi, snimi, puhelin, email);
+                Boolean lisaaAsiakas = opiskelija.MuokkaaOpiskelijaa(oid, enimi, snimi, puhelin, email, oNro);
                 if (lisaaAsiakas)
                 {
                     MessageBox.Show("Opiskelija päivitetty tietokantaan onnistuneesti!", "Opiskelijan päivitys", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,16 +98,16 @@ namespace T20_CRUD
                     MessageBox.Show("Opiskelija ei voitu päivittää tietokantaan!", "Opiskelijan päivitys", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            TietotauluDG.DataSource = Opiskelija.HaeOpiskelijat();
+            TietotauluDG.DataSource = opiskelija.HaeOpiskelijat();
         }
 
 
         private void PoistaBt_Click(object sender, EventArgs e)
         {
             String ktunnus = IdTB.Text;
-            if (Opiskelija.PoistaOpiskelija(ktunnus))
+            if (opiskelija.PoistaOpiskelija(ktunnus))
             {
-                TietotauluDG.DataSource = Opiskelija.HaeOpiskelijat();
+                TietotauluDG.DataSource = opiskelija.HaeOpiskelijat();
 
                 MessageBox.Show("Opiskelija poistettu!", "Opiskelijan poisto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

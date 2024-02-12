@@ -1,44 +1,42 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
+﻿
+using MySql.Data.MySqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace T20_CRUD
 {
-    internal class Yhdista
+    class Yhdista
     {
-       
+
         public string Yhteyslause()
         {
-            return "datasource=localhost;port3306;username=root;password=;database-hotelli";
-
+            return "datasource=localhost;port=3306;username=root;password=;database=hotelli";
         }
 
-        private MySqlConnection yhteys = new MySqlConnection("datasource=localhost;port3306;username=root;password=;database-opiskelijat");
+        private MySqlConnection yhteys = new MySqlConnection("datasource=localhost; port=3306;username=root;password=;database=opiskelijat"); 
 
-        public MySqlConnection otaYhteys()
+
+
+        public MySqlConnection OtaYhteys()
         {
-            return yhteys; 
+            return yhteys;
         }
 
-        public void avaaYhteys()
+
+        public void AvaaYhteys()
         {
-            if (yhteys.State == ConnectionState.Closed)
-            {
-                yhteys.Open();
-            }
+           if (yhteys.State == ConnectionState.Closed)
+          {
+              yhteys.Open();
+          }
+          
         }
 
-        public void suljeYhteys()
+        public void SuljeYhteys()
         {
-            if (yhteys.State == ConnectionState.Open)
-            {
-                yhteys.Close();
-            }
+                if (yhteys.State == ConnectionState.Open)
+                {
+                    yhteys.Close();
+                }
         }
-
     }
 }
